@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Mehtab ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<style>
+body{
+ margin:0;
+ font-family:'Poppins',sans-serif;
+ background:linear-gradient(-45deg,#ff6a88,#ff99ac,#ffc3d1,#ff6a88);
+ background-size:400% 400%;
+ animation:bg 12s infinite ease;
+ color:white;
+ text-align:center;
+ overflow-x:hidden;
+}
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+.container{
+ padding:40px 20px;
+}
+h1{
+ font-family:'Dancing Script',cursive;
+ font-size:60px;
+ margin:10px 0;
+ text-shadow:0 0 20px rgba(255,255,255,.8);
+}
+.subtitle{
+ font-size:24px;
+ margin-bottom:30px;
+}
+.card{
+ background:rgba(255,255,255,.18);
+ border-radius:25px;
+ padding:30px;
+ max-width:700px;
+ margin:20px auto;
+ backdrop-filter:blur(12px);
+ box-shadow:0 10px 40px rgba(0,0,0,.25);
+}
+button{
+ padding:15px 35px;
+ border:none;
+ border-radius:40px;
+ font-size:18px;
+ font-weight:600;
+ cursor:pointer;
+ background:white;
+ transition:.3s;
+}
+button:hover{
+ transform:scale(1.15);
+}
+.heart{
+ position:fixed;
+ bottom:-10px;
+ font-size:20px;
+ animation:float 6s linear infinite;
+ opacity:.7;
+}
+@keyframes float{
+ to{transform:translateY(-110vh) scale(1.5);opacity:0}
+}
+#letter{
+ display:none;
+ animation:fade 1s forwards;
+}
+@keyframes fade{
+ from{opacity:0;transform:translateY(20px)}
+ to{opacity:1;transform:translateY(0)}
+}
+.footer{
+ margin-top:30px;
+ font-size:18px;
+ opacity:.9;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Happy Valentine's Day</h1>
+<h1>Mehtab ❤️</h1>
+<div class="subtitle">A little surprise made just for you ✨</div>
+<div class="card">
+<p id="msg">You are the most beautiful part of my life 💕</p>
+<button onclick="changeMsg()">Click for Love Message 💌</button>
+</div>
+<div class="card">
+<button onclick="showLetter()">Open Love Letter 💖</button>
+<p id="letter">
+My Dearest Loss,<br><br>
+Every moment with you feels like a dream I never want to wake up from.
+You are my smile, my peace, and my happiness.
+No matter where life takes us, my heart will always choose you.
+<br><br>
+Forever yours,<br>
+<b>Rehmat Jan ❤️</b>
+</p>
+</div>
+<div class="card">
+<h2>Why I Love You 💘</h2>
+<p id="reason">Click below to see 💞</p>
+<button onclick="reason()">Show Reason</button>
+</div>
+<div class="footer">Made with love by Rehmat Jan 💗</div>
+<audio id="music" autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+</div>
+<script>
+const msgs=[
+"You are my today and all of my tomorrows ❤️",
+"Your smile is my favorite sight 😍",
+"I fall for you more every day 💞",
+"You are my destiny 💖",
+"Loving you is the best thing I ever did 💘"
+];
+function changeMsg(){
+ document.getElementById("msg").textContent=msgs[Math.floor(Math.random()*msgs.length)];
+}
+const reasons=[
+"Because your smile heals my soul 💕",
+"Because you understand me without words 💫",
+"Because life feels beautiful with you 🌹",
+"Because you are my safe place 🫶",
+"Because you are simply you ❤️"
+];
+function reason(){
+ document.getElementById("reason").textContent=reasons[Math.floor(Math.random()*reasons.length)];
+}
+function showLetter(){
+ document.getElementById("letter").style.display="block";
+}
+function heart(){
+ const h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="❤";
+ h.style.left=document.querySelector('h1:nth-of-type(2)').offsetLeft + Math.random()*100 + "px";
+ h.style.fontSize=(15+Math.random()*20)+"px";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),6000);
+}
+setInterval(heart,300);
+</script>
+</body>
+</html>
